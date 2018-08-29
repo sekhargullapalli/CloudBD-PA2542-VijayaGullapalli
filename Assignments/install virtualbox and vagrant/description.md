@@ -1,7 +1,7 @@
-#Vagrant folder - UBUNTU + .NET CORE
+#Vagrant folder - UBUNTU + .NET CORE#
 -------------------------------------
-### The vagrant file is configured using the box ubuntu/xenial64 for ubuntu 16.04LTS
-### Then using the following inline shell commands the dotnet core is installed 
+### The vagrant file is configured using the box ubuntu/xenial64 for ubuntu 16.04LTS ###
+### Then using the following inline shell commands the dotnet core is installed ###
 ```
 echo "========Installing .net core on ubunt"
 	 echo "========Registering Microsoft key and feed!"
@@ -14,11 +14,11 @@ echo "========Installing .net core on ubunt"
 	 echo "=========.NET SDK installation completed!"	   
 ```
 
-###Finally a dotnet core console application is developed with a welcome text
-
+###Finally a dotnet core console application is developed with a welcome text ###
+###Using a provisioning script welcome.sh the program is finally compiled and run to show a welcome screen ###
 ```
 cd /vagrant/dotnet/welcomescreen
 dotnet run
 ```
 
-###Using a provisioning script welcome.sh the program is finally compiled and run to show a welcome screen
+
