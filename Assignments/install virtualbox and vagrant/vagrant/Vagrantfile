@@ -1,0 +1,19 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+   config.vm.box = "ubuntu/xenial64"   
+   config.vm.provision "shell", inline: <<-SHELL
+	 echo "========Installing .net core on ubunt"
+	 echo "========Registering Microsoft key and feed!"
+	 wget -q https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb
+	 sudo dpkg -i packages-microsoft-prod.deb
+	 echo "=========Installing .net SDK"	
+	 sudo apt-get -y install apt-transport-https
+	 sudo apt-get update
+	 sudo apt-get -y install dotnet-sdk-2.1
+	 echo "=========.NET SDK installation completed!"	     
+   SHELL
+   dir = File.expand_path("..", __FILE__) 
+  config.vm.provision "shell", path: File.join(dir, "welcome.sh"), run: 'always'   
+end
